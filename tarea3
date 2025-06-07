@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+
+abstract class InstrumentoMusical
+{
+    public string Nombre { get; }
+    protected InstrumentoMusical(string nombre) => Nombre = nombre;
+    public abstract void Tocar();
+}
+
+class Guira : InstrumentoMusical
+{
+    public Guira(string nombre) : base(nombre) { }
+    public override void Tocar() => Console.WriteLine($"{Nombre}: Suena la güira 🪇");
+}
+
+class Acordeon : InstrumentoMusical
+{
+    public Acordeon(string nombre) : base(nombre) { }
+    public override void Tocar() => Console.WriteLine($"{Nombre}: Vibra el acordeón 🎶");
+}
+
+class Program
+{
+    static void Main()
+    {
+        var grupo = new List<InstrumentoMusical>
+        {
+            new Guira("Güira"),
+            new Acordeon("Acordeón")
+        };
+
+        grupo.ForEach(i => i.Tocar());
+    }
+}
