@@ -1,0 +1,22 @@
+using System;
+
+class Persona
+{
+    public string Nombre { get; set; }
+    public int Edad { get; set; }
+    public Persona(string nombre, int edad) => (Nombre, Edad) = (nombre, edad);
+}
+
+class Estudiante : Persona
+{
+    public string Grado { get; set; }
+    public Estudiante(string nombre, int edad, string grado) : base(nombre, edad) => Grado = grado;
+
+    public void MostrarInformacion() =>
+        Console.WriteLine($"Nombre: {Nombre}\nEdad: {Edad}\nGrado: {Grado}");
+}
+
+class Program
+{
+    static void Main() => new Estudiante("Amparo", 19, "2° de Bachillerato").MostrarInformacion();
+}
